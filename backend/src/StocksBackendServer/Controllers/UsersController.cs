@@ -39,5 +39,21 @@ namespace StocksBackendServer.Controllers
 
             return Ok(user);
         }
+
+        [HttpGet("getUserData/{id}")]
+        public IActionResult GetUserData(string id)
+        {
+            var userEntity = _repository.User.Get(id);
+            if (userEntity == null)
+            {
+                _logger.LogError($"User with id: {id}, hasn't been found in db.");
+                return NotFound();
+            }
+            userEntity.Account = _repository.Account.Get(id);
+            userEntity.Portfolio = _repository.Stock.Get(id).ToArray();
+            userEntity.Password = null;
+
+            return Ok(userEntity);
+        }
     }
 }

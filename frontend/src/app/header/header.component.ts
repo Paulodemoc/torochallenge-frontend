@@ -1,19 +1,22 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Helpers } from './helpers/helpers';
 import { startWith, delay } from 'rxjs/operators';
+import { Helpers } from '../helpers/helpers';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class AppComponent implements AfterViewInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
+
   subscription: Subscription;
   authentication: boolean;
-  title = 'frontend';
 
-  constructor(private helpers: Helpers){}
+  constructor(private helpers: Helpers) { }
+
+  ngOnInit() {
+  }
 
   ngAfterViewInit() {
     this.subscription = this.helpers.isAuthenticationChanged().pipe(
@@ -26,4 +29,5 @@ export class AppComponent implements AfterViewInit {
   OnDestroy() {
     this.subscription.unsubscribe();
   }
+
 }

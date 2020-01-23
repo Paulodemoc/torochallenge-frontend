@@ -9,7 +9,7 @@
   [options]="chartOptions"
   [plugins]="chartPlugins"
   [legend]="chartLegend"
-  [colors]="lineChartColors" 
+  [colors]="lineChartColors"
   [chartType]="chartType">
 </canvas>
 </div>
@@ -20,8 +20,9 @@
       <th>#</th>
       <th>Stock</th>
       <th>Value</th>
-      <th></th>
-      <th></th>
+      <th *ngIf="authentication">Owned</th>
+      <th *ngIf="authentication">Buy</th>
+      <th *ngIf="authentication">Sell</th>
     </tr>
   </thead>
   <tbody>
@@ -29,8 +30,11 @@
       <td></td>
       <td>{{ stock.StockCode }}</td>
       <td>{{ stock.Value }}</td>
-      <td></td>
-      <td></td>
+      <td *ngIf="authentication">0</td>
+      <td *ngIf="authentication"><input type="number" min="0" [(ngModel)]="stock.AmmountToBuy" />
+        <button class="btn btn-info" style="margin-left:5px" (click)="buy(stock.StockCode, stock.AmmountToBuy)">Buy</button></td>
+      <td *ngIf="authentication"><input type="number" min="0" [(ngModel)]="stock.AmmountToSell" />
+        <button class="btn btn-danger"  style="margin-left:5px" (click)="sell(stock.StockCode, stock.AmmountToSell)">Sell</button></td>
     </tr>
   </tbody>
 </table>

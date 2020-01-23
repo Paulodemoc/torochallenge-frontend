@@ -1,0 +1,5 @@
+<div class="header" style="text-align: center;">
+    <a [routerLink]="['/']" class="btn btn-info">Dashboard</a>
+    <a [routerLink]="['/login']" class="btn btn-info" *ngIf="!authentication">Login</a>
+    <a [routerLink]="['/logout']" class="btn btn-danger" *ngIf="authentication">Logout</a>
+</div>

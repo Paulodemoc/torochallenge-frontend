@@ -3,4 +3,6 @@ export class Stock {
   Ammount: number;
   Value: number;
   Timestamp: number;
+  AmmountToBuy: number;
+  AmmountToSell: number;
 }

@@ -1,12 +1,13 @@
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
-  // { path: 'blogpost/:id', component: BlogPostComponent },
-  // { path: 'add', component: BlogPostAddEditComponent },
-  // { path: 'blogpost/edit/:id', component: BlogPostAddEditComponent },
+  { path: 'login', component: LoginComponent},
+  { path: 'logout', component: LogoutComponent},
   { path: '**', redirectTo: '/' }
 ];
 
