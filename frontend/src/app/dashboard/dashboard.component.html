@@ -1,0 +1,36 @@
+<h1>Dashboard</h1>
+
+<p *ngIf="!(myWebSocket$ | async)"><em>Loading...</em></p>
+
+<div class="chart-wrapper" *ngIf="(stocks)?.length>0">
+  <canvas baseChart
+  [datasets]="chartData"
+  [labels]="chartLabels"
+  [options]="chartOptions"
+  [plugins]="chartPlugins"
+  [legend]="chartLegend"
+  [colors]="lineChartColors" 
+  [chartType]="chartType">
+</canvas>
+</div>
+
+<table class="table table-sm table-hover" *ngIf="(stocks)?.length>0">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Stock</th>
+      <th>Value</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let stock of stocks">
+      <td></td>
+      <td>{{ stock.StockCode }}</td>
+      <td>{{ stock.Value }}</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
