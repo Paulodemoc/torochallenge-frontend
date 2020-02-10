@@ -34,10 +34,10 @@ namespace Repository
         }
 
         public void Update(string userId, Stock accIn) =>
-            _stocks.ReplaceOne(acc => acc.UserId == userId, accIn);
+            _stocks.ReplaceOne(acc => acc.UserId == userId && acc.StockCode == accIn.StockCode, accIn);
 
         public void Remove(Stock accIn) =>
-            _stocks.DeleteOne(acc => acc.UserId == accIn.UserId);
+            _stocks.DeleteOne(acc => acc.UserId == accIn.UserId && acc.StockCode == accIn.StockCode);
 
         public void Remove(string userId) =>
             _stocks.DeleteMany(acc => acc.UserId == userId);

@@ -7,4 +7,8 @@ export class User {
   Email: string;
   Account: Account;
   Portfolio: Stock[];
+
+  constructor() {
+    this.Account = new Account();
+  }
 }

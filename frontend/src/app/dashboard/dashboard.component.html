@@ -14,6 +14,10 @@
 </canvas>
 </div>
 
+<div *ngIf="authentication" style="width: 400px;text-align: center;margin-top: 15px; font-weight: bold;">
+<p>Total funds:   {{ userData.Account.Funds | currency:'BRL' }}</p>
+</div>
+
 <table class="table table-sm table-hover" *ngIf="(stocks)?.length>0">
   <thead>
     <tr>
@@ -30,7 +34,7 @@
       <td></td>
       <td>{{ stock.StockCode }}</td>
       <td>{{ stock.Value }}</td>
-      <td *ngIf="authentication">0</td>
+      <td *ngIf="authentication">{{ stock.Ammount | number }}</td>
       <td *ngIf="authentication"><input type="number" min="0" [(ngModel)]="stock.AmmountToBuy" />
         <button class="btn btn-info" style="margin-left:5px" (click)="buy(stock.StockCode, stock.AmmountToBuy)">Buy</button></td>
       <td *ngIf="authentication"><input type="number" min="0" [(ngModel)]="stock.AmmountToSell" />

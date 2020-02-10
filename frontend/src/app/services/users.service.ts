@@ -22,4 +22,16 @@ export class UsersService extends BaseService {
       catchError(super.handleError)
     );
   }
+
+  addFunds(quantity: number): Observable<any> {
+    return this.http.put(this.pathAPI + 'funds/deposit/' + this.helper.getUserId(), {
+      ammount: quantity
+    }, this.header());
+  }
+
+  removeFunds(quantity: number): Observable<any> {
+    return this.http.put(this.pathAPI + 'funds/withdraw/' + this.helper.getUserId(), {
+      ammount: quantity
+    }, this.header());
+  }
 }

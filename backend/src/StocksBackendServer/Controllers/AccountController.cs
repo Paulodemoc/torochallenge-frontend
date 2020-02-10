@@ -44,7 +44,7 @@ namespace StocksBackend.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Something went wrong inside Buy Stocks action: {ex.Message}");
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
 
@@ -88,7 +88,7 @@ namespace StocksBackend.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Something went wrong inside Buy Stocks action: {ex.Message}");
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
 
@@ -132,7 +132,7 @@ namespace StocksBackend.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Something went wrong inside Buy Stocks action: {ex.Message}");
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
     }

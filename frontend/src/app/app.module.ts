@@ -14,6 +14,9 @@ import { DashboardService } from './services/dashboard.service';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { FundsComponent } from './funds/funds.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { LogoutComponent } from './logout/logout.component';
     DashboardComponent,
     HeaderComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    FundsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,9 @@ import { LogoutComponent } from './logout/logout.component';
     AppRoutingModule,
     ReactiveFormsModule,
     ChartsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     DashboardService,

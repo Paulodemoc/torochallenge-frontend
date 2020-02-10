@@ -1,0 +1,22 @@
+<div class="container">
+  <div style="text-align: center; width: 400px;">
+    <table class="table table-sm table-hover">
+      <thead>
+        <tr>
+          <th>Funds</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ userData.Account.Funds | currency:'BRL' }}</td>
+          <td>
+            <input type="number" min="0" [(ngModel)]="userData.Account.Ammount" /><br/>
+            <button class="btn btn-danger" style="margin-left:5px" (click)="withdraw()">Withdraw</button>
+            <button class="btn btn-info" style="margin-left:5px" (click)="deposit()">Deposit</button>
+          </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

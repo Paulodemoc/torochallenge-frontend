@@ -25,3 +25,16 @@ services:
     ports:
       - "4000:4000"
     depends_on: ["toroinvestimentos", "mongostocks"]
+  frontendstocks:
+    build:
+      dockerfile: Dockerfile
+      context: ./frontend
+    container_name: frontendstocks
+    image: frontendstocks:latest
+    links:
+      - toroinvestimentos
+      - mongostocks
+      - backendstocks
+    ports:
+      - "4200:4200"
+    depends_on: ["toroinvestimentos", "mongostocks", "backendstocks"]

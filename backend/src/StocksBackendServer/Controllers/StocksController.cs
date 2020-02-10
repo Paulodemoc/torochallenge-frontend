@@ -19,6 +19,7 @@ namespace StocksBackend.Controllers
         private ILoggerManager _logger;
         private IStocksManager _quotes;
         private IRepositoryWrapper _repository;
+        public string errorMessage = "";
 
         public StocksController(ILoggerManager logger, IRepositoryWrapper repository, IStocksManager quotes)
         {
@@ -53,7 +54,7 @@ namespace StocksBackend.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Something went wrong inside Buy Stocks action: {ex.Message}");
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
 
@@ -92,7 +93,7 @@ namespace StocksBackend.Controllers
                 if (userStocks == null)
                 {
                     userStocks = new Stock { UserId = id, StockCode = stocks.StockCode };
-                    _repository.Stock.Create(userStocks);
+                    userStocks = _repository.Stock.Create(userStocks);
                 }
 
                 //get price for the ammount
@@ -117,6 +118,8 @@ namespace StocksBackend.Controllers
 
                 userStocks.Ammount += stocks.Ammount;
 
+                this.errorMessage = $"{userStocks.Id}, {userStocks.UserId}, {userStocks.StockCode}";
+
                 _repository.Stock.Update(id, userStocks);
 
                 return Ok();
@@ -124,7 +127,7 @@ namespace StocksBackend.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Something went wrong inside Buy Stocks action: {ex.Message}");
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, this.errorMessage + Environment.NewLine + Environment.NewLine + Environment.NewLine + ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
 
@@ -198,7 +201,7 @@ namespace StocksBackend.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Something went wrong inside Buy Stocks action: {ex.Message}");
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
     }

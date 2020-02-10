@@ -1,5 +1,6 @@
 <div class="header" style="text-align: center;">
-    <a [routerLink]="['/']" class="btn btn-info">Dashboard</a>
-    <a [routerLink]="['/login']" class="btn btn-info" *ngIf="!authentication">Login</a>
-    <a [routerLink]="['/logout']" class="btn btn-danger" *ngIf="authentication">Logout</a>
+    <a [routerLink]="['/']" class="btn btn-info" style="margin-right: 5px;">Dashboard</a>
+    <a [routerLink]="['/funds']" class="btn btn-info" *ngIf="authentication" style="margin-right: 5px;">Funds</a>
+    <a [routerLink]="['/login']" class="btn btn-info" *ngIf="!authentication" style="margin-right: 5px;">Login</a>
+    <a [routerLink]="['/logout']" class="btn btn-danger" *ngIf="authentication" style="margin-right: 5px;">Logout</a>
 </div>
