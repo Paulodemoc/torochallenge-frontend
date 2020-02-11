@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://backendstocks:4000/api/',
-  stocksSocket: 'ws://toroinvestimentos:8080/quotes'
+  apiUrl: '_API_URL_',
+  stocksSocket: '_STOCKS_WS_URL_'
 };
