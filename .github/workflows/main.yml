@@ -14,12 +14,12 @@ jobs:
     - name: Replace Stocks WS Url
       uses: datamonsters/replace-action@v2
       with:
-        files: ./src/environments/environment.prod.ts
+        files: ./src/environments/environment.ts
         replacements: '_STOCKS_WS_URL_=${{ secrets.STOCKS_WS_URL }}'
     - name: Replace API Url
       uses: datamonsters/replace-action@v2
       with:
-        files: ./src/environments/environment.prod.ts
+        files: ./src/environments/environment.ts
         replacements: '_API_URL_=${{ secrets.API_URL }}'
     - name: Build and deploy the Docker image
       env:
