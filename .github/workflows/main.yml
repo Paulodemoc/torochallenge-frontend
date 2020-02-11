@@ -12,10 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Replace Stocks WS Url
-        uses: datamonsters/replace-action@v2
-        with:
-          files: ./src/environments/environment.prod.ts
-          replacements: '_STOCKS_WS_URL_=${{ secrets.STOCKS_WS_URL }}'
+      uses: datamonsters/replace-action@v2
+      with:
+        files: ./src/environments/environment.prod.ts
+        replacements: '_STOCKS_WS_URL_=${{ secrets.STOCKS_WS_URL }}'
     - name: Replace API Url
       uses: datamonsters/replace-action@v2
       with:
