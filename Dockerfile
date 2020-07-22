@@ -21,5 +21,5 @@ RUN npm install -g @angular/cli
 COPY . /app
 
 # start app
-CMD ng serve --host 0.0.0.0 --port $PORT --disable-host-check
-EXPOSE $PORT
+CMD ng serve --host 0.0.0.0 --port 4200 --disable-host-check
+EXPOSE 4200

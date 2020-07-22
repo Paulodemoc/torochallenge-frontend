@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: '_API_URL_',
-  stocksSocket: '_STOCKS_WS_URL_'
+  apiUrl: 'http://localhost:4000/',
+  stocksSocket: 'wss://'
 };
 
 /*
