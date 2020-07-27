@@ -48,7 +48,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
                }
 
   ngOnInit() {
-    this.stocks = [];
+    this.stocks = [
+      {StockCode:"ABC", Value:5, Ammount: 0, AmmountToBuy: 0, AmmountToSell: 0, Timestamp: null},
+      {StockCode:"DEF", Value:10, Ammount: 0, AmmountToBuy: 0, AmmountToSell: 0, Timestamp: null},
+      {StockCode:"GHI", Value:15, Ammount: 0, AmmountToBuy: 0, AmmountToSell: 0, Timestamp: null}
+    ];
     this.myWebSocket$ = this.dashboardService.getStocks();
 
     this.myWebSocket$.subscribe(
